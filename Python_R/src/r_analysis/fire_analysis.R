@@ -11,11 +11,12 @@ library(dplyr)        # Para manipulação de dados.
 library(forecast)     # Para modelos de séries temporais (previsão de temperatura/fumaça).
 library(randomForest) # Para o modelo Random Forest, usado para classificação de risco de incêndio.
 
-
 # --- Argumentos de Linha de Comando ---
 args <- commandArgs(trailingOnly = TRUE)
 input_file <- args[1] # Ex: "r_analysis/temp_data/fire_data_for_r.csv"
 output_file <- args[2] # Ex: "r_analysis/temp_data/fire_risk_output.json"
+
+base_path <- "C:/Work/Fiap/Python/Fase_4/Projeto/GuardiaoNatural/GuardiaoNatural/master/src/r_analysis"
 
 # --- Carregar Dados Atuais dos Sensores ---
 if (!file.exists(input_file)) {
@@ -37,7 +38,7 @@ if (nrow(current_sensor_data) == 0) {
 }
 
 # --- Carregar Dados Históricos para Treinamento do Modelo de ML ---
-historical_data_path <- "/../r_analysis/datasets/historical_fire_data.csv"
+historical_data_path <- file.path(base_path, "datasets", "historical_fire_data.csv")
 if (!file.exists(historical_data_path)) {
   stop(paste("ERRO: Arquivo de dados históricos não encontrado:", historical_data_path))
 }

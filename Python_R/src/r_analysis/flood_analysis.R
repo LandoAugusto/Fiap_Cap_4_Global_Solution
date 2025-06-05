@@ -17,6 +17,9 @@ args <- commandArgs(trailingOnly = TRUE)
 input_file <- args[1] # Ex: "r_analysis/temp_data/flood_data_for_r.csv"
 output_file <- args[2] # Ex: "r_analysis/temp_data/flood_risk_output.json"
 
+
+base_path <- "C:/Work/Fiap/Python/Fase_4/Projeto/GuardiaoNatural/GuardiaoNatural/master/src/r_analysis"
+
 # --- Carregar Dados Atuais dos Sensores ---
 # Estes são os dados mais recentes recebidos do ESP32 via MQTT.
 if (!file.exists(input_file)) {
@@ -41,7 +44,7 @@ if (nrow(current_sensor_data) == 0) {
 
 # --- Carregar Dados Históricos para Treinamento do Modelo de ML ---
 # Estes dados simulam informações de disasterscharter.org para treinar o modelo.
-historical_data_path <- "C:\\Work\\Fiap\\Python\\Fase_4\\Projeto\\GuardiaoNatural\\GuardiaoNatural\\master\\src\\r_analysis\\datasets\\historical_flood_data.csv"
+historical_data_path <- file.path(base_path, "datasets", "historical_flood_data.csv")
 if (!file.exists(historical_data_path)) {
   stop(paste("ERRO: Arquivo de dados históricos não encontrado:", historical_data_path))
 }

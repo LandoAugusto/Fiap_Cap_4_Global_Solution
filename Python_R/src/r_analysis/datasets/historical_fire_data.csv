@@ -1,0 +1,5 @@
+timestamp,temperature_avg_24h,humidity_avg_24h,wind_speed_avg_24h,vegetation_dryness_index,smoke_concentration_avg_6h,fire_risk_category
+2025-06-01 12:00:00,32.5,40,12,0.8,0.4,Alto
+2025-06-02 12:00:00,28.0,60,10,0.3,0.1,Baixo
+2025-06-03 12:00:00,30.0,50,15,0.6,0.2,Moderado
+2025-06-04 12:00:00,35.0,35,18,0.9,0.7,Muito Alto
