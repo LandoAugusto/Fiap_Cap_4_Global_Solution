@@ -16,7 +16,7 @@ args <- commandArgs(trailingOnly = TRUE)
 input_file <- args[1] # Ex: "r_analysis/temp_data/fire_data_for_r.csv"
 output_file <- args[2] # Ex: "r_analysis/temp_data/fire_risk_output.json"
 
-base_path <- "C:/Work/Fiap/Python/Fase_4/Projeto/GuardiaoNatural/GuardiaoNatural/master/src/r_analysis"
+base_path <- "C:\\Work\\Fiap\\Python\\Fase_4\\fdsafas\\master\\Python_R\\src\\r_analysis"
 
 # --- Carregar Dados Atuais dos Sensores ---
 if (!file.exists(input_file)) {

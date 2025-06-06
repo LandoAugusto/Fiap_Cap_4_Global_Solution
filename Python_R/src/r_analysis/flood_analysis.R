@@ -18,7 +18,7 @@ input_file <- args[1] # Ex: "r_analysis/temp_data/flood_data_for_r.csv"
 output_file <- args[2] # Ex: "r_analysis/temp_data/flood_risk_output.json"
 
 
-base_path <- "C:/Work/Fiap/Python/Fase_4/Projeto/GuardiaoNatural/GuardiaoNatural/master/src/r_analysis"
+base_path <- "C:\\Work\\Fiap\\Python\\Fase_4\\fdsafas\\master\\Python_R\\src\\r_analysis"
 
 # --- Carregar Dados Atuais dos Sensores ---
 # Estes são os dados mais recentes recebidos do ESP32 via MQTT.

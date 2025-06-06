@@ -28,6 +28,7 @@ FIRE_DATA_FOR_R = os.path.join(BASE_DIR, '..', 'r_analysis', 'temp_data', 'fire_
 FLOOD_RISK_OUTPUT_R = os.path.join(BASE_DIR, '..', 'r_analysis', 'temp_data', 'flood_risk_output.json')
 FIRE_RISK_OUTPUT_R = os.path.join(BASE_DIR, '..', 'r_analysis', 'temp_data', 'fire_risk_output.json')
 FLOOD_ANALYSIS_R  = os.path.join(BASE_DIR, '..', 'r_analysis', 'flood_analysis.R')
+FIRE_ANALYSIS_R  = os.path.join(BASE_DIR, '..', 'r_analysis', 'fire_analysis.R')
 
 
 # --- Chave da API do LM (SIMULADA) ---
@@ -47,10 +48,6 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
-
-    print(">>> Callback on_message acionado <<<")
-    print(f"Tópico: {msg.topic}")
-    print(f"Payload bruto: {msg.payload}")
     """Callback chamado quando uma mensagem MQTT é recebida em um tópico subscrito."""
     print(f"Mensagem recebida no tópico {msg.topic}: {msg.payload.decode()}")
 
@@ -239,7 +236,7 @@ def process_fire_data(new_data):
     df_fire.to_csv(FIRE_DATA_FOR_R, index=False)
     print(f"Dados de incêndio para R salvos em {FIRE_DATA_FOR_R}")
 
-    if run_r_script("../r_analysis/fire_analysis.R", FIRE_DATA_FOR_R, FIRE_RISK_OUTPUT_R):
+    if run_r_script(FIRE_ANALYSIS_R, FIRE_DATA_FOR_R, FIRE_RISK_OUTPUT_R):
         try:
             with open(FIRE_RISK_OUTPUT_R, 'r') as f:
                 fire_risk_data = json.load(f)
