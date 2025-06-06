@@ -87,7 +87,7 @@ O sistema "Guardião Natural" é estruturado em três módulos funcionais, integ
    * **Saída:** OLED SSD1306 para visualização local e LED de alerta.
    * **Comunicação:** Envio de dados em JSON via MQTT para o servidor central.
 
-![Wokwi](Python_R/assets/imagee.jpg)
+![Wokwi](Python_R/assets/imagee.jpeg)
 
 2. **Módulo de Processamento e Inteligência (Python/R):**
    * **Servidor de Dados (`data_processor.py`):** Recebe dados MQTT, armazena, e coordena a análise.
